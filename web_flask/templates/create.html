@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block container %}
+<form action="" method="post" enctype="multipart/form-data">
+    <label for="firstname">firstname</label><br>
+    <input type="text" name="first_name" placeholder="firstname" value="{{ request.form['first_name']}}" required>
+    <br>
+    <label for="last_name">last_name</label><br>
+    <input type="text" name="last_name" value="{{ request.form['last_name'] }}" required>
+    <br>
+    <label for="email">email</label><br>
+    <input type="text" name="email" value="{{ request.form['email'] }}" required><br>
+    <label for="username">username</label><br>
+    <input type="text" name="username" value="{{ request.form['username']}}" required><br>
+    <label for="password">password</label><br>
+    <input type="text" name="password" value="{{ request.form['password']}}" required><br>
+    <label for="image">Profile Image</label><br>
+    <input type="file" name="image"><br><br>
+    <button type="submit">Submit</button>
+</form>
+{% for user in users %}
+<h1>{{ user.id }}</h1>
+<h2>{{ user.first_name }}</h2>
+{% if user.image %}
+<img src="{{ user.image }}" alt="" height="200px" width="200px">
+{% endif %}
+{% endfor %}
+{% endblock %}

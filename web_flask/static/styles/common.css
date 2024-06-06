@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+.container h1 {
+    margin-top: 70px;
+}
+
+.upper, .middle {
+    margin-bottom: 20px;
+}
+
+.middle h2,
+.lower h2 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+.upper p {
+    text-align: left;
+}
+
+.upper section,
+.middle section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.upper section .right {
+    flex-basis: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.upper section .left {
+    flex-basis: 50%;
+}
+.upper section .left img {
+    width: 200px;
+    height: 200px;
+}
+
+.middle .maize {
+    width: 410px;
+    height: 340px;
+    margin-top: -45%;
+    margin-left: 10%;
+}
+
+.middle section .middle_right,
+.middle section .middle_left {
+    flex-basis: 50%;
+}
+
+.middle .digital {
+    width: 382px;
+    height: 180px;
+    z-index: 2;
+}
+
+.lower section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.lower .resource,
+.lower .market {
+    justify-content: center;
+    flex-basis: 35%;
+}
+.lower .resource img {
+    width: 260px;
+    height: 196px;
+    margin-left: 20px;
+}
+
+.lower .market img {
+    width: 232ppx;
+    height: 196px;
+    margin-left: 20px;
+}
+
+.lower .market {
+    display: inline-block;
+    width: 45%;
+}
+
+.lower .weather {
+    width: 35%;
+    margin: 0 auto;
+}
+
+.lower .weather img {
+    margin-left: 30%;
+    width: 233px;
+    height: 169px;
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="us-en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../static/styles/header.css">
+        <link rel="stylesheet" href="../static/styles/common.css">
+        <link rel="stylesheet" href="../static/styles/footer.css">
+        <link rel="stylesheet" href="../static/styles/weather.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="static/scripts/api.js"></script>
+        <script src="static/scripts/forecast.js"></script>
+        <script src="static/scripts/date.js"></script>
+        <title>UBagri</title>
+    </head>
+    
+    <body>
+        <header>
+            <div class="logo"><img src="../static/images/logo.jpeg"></div>
+            <nav class="navigation">
+                <a href="{{ url_for('ubagri') }}">About</a>
+                <a href="{{ url_for('weather') }}">Weather</a>
+                <a href="#">Market</a>
+                <a href="{{ url_for('account') }}">Account</a>
+            </nav>
+            <div class="search-button">
+                <img src="../static/images/search.png">
+                <input type="text" placeholder="Search">
+            </div>
+        </header>
+
+        <div class="container">
+            <section class="upper-section">
+                <div class="title">
+                    <h2>only ways to be 
+                        a good farmer increase your harverist is to detamination
+                        of climatic change
+                    </h2>
+                    <p><a href="#">for more</a></p> 
+                    <span>for session</span>
+                </div>
+                <div class="date">
+                    <div id="day">
+                        <p>Friday, May 24</p>
+                    </div>
+                    <div class="temperature">
+                        <h2>Temperature</h2>
+                        <h5 id="error"></h5>
+                        <h3 id="city"></h3>
+                        <div id="weather"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="middle-section">
+                <div class="image">
+                    <img src="../static/images/agri sun.png">
+                    <img src="../static/images/agri map.png">
+                </div>
+                <div class="state">
+                    <input type="text" id="cityInput" name="cityInput" placeholder="Input City" />
+                    <button id="realTime">Submit</button>
+                    <ul>
+                        <li>Kigali City</li>
+                        <li>Northern Zone</li>
+                        <li>Southern Zone</li>
+                        <li>Western Zone</li>
+                        <li>Eastern Zone</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="lower-section">
+                <div class="news">
+                    <h2>News Letter</h2>
+                    <div class="latest">
+                        <div class="latest-news">
+                            <img src="../static/images/agri rainfall.png">
+                            <p>in gakenke more rain fall affect crops</p>
+                        </div>
+                        <div class="latest-news">
+                            <img src="../static/images/agri proctect1.png">
+                            <p>onecrop cooperation  in Nyaraguru discovery this new system</p>
+                        </div>
+                        <div class="latest-news">
+                            <img src="../static/images/agri thumberstom.png">
+                            <p>thunderstorm have more probality to affect this season</p>
+                        </div>
+                    </div>
+                    <h2>More</h2>
+                </div>
+                <div class="description">
+                    <h2>Weather Forecast</h2>
+                    <p>We observe, we analyse, we predict.</p>
+                    <p>The purpose of Weather forecasting is to predict the future state of the weather at a given location so that users/public can plan their activities accordingly.</p>
+                    <h3>Rwanda Meteorology Agency issue forecast of different time scales:</h3>
+                    <ul>
+                        <li><strong>Now casting:</strong> A description of current weather from 1 minute to about 2 hours.</li>
+                        <li><strong>Short-range weather forecasting:</strong> A description of weather parameters from 3 hours up to 3 days.</li>
+                        <li><strong>Medium-range weather forecasting:</strong> Weather Forecast from 3 days to less that 10 days</li>
+                        <li><strong>Extended-range weather forecasting:</strong> Usually averaged and expressed as a departure from climate values for the period of 10 days and up to 30 days.</li>
+                        <li><strong>Monthly outlook:</strong> Description of averaged weather parameters expressed as a departure (deviation, variation, anomaly) from climate values for that month.</li>
+                        <li><strong>Monthly outlook:</strong> Description of averaged weather parameters expressed as a departure from climate values for that 90 day period</li>
+                    </ul>
+                    <h3>Rainfall Categories observed within 24 hours:</h3>
+                    <ul>
+                        <li>1mm   Trace</li>
+                        <li>1-5mm   Light Rain</li>
+                        <li>5-20mm   Moderate Rain</li>
+                        <li>20-50mm   Heavy Rain</li>
+                        <li>Above 50mm Very Heavy</li>
+                    </ul>
+                    <h3>Some Key Words used in Weather Forecast:</h3>
+                    <ul>
+                        <li><strong>Mostly Cloudy:</strong> Amount of clouds covering 60% to 100% of the sky</li>
+                        <li><strong>Partly Cloudy:</strong> Amount of clouds covering 30% to 60% of the sky</li>
+                        <li><strong>Few Clouds:</strong> Amount of clouds covering 0% to 30% of the sky</li>
+                    </ul>
+                </div>
+            </section>
+            <div class="forecast">
+                <input type="text" id="cityInputF" name="cityInput" placeholder="Input City" />
+                <button id="forecast">Submit</button>
+                <h5 id="errorF"></h5>
+                <h3 id="cityF" class="city-name"></h3>
+                <div id="weatherF" class="weather-container"></div>
+            </div>            
+        </div>
+
+
+        <footer>
+            <p>&copy; UBagri</p>
+        </footer>
+    </body>
+</html>

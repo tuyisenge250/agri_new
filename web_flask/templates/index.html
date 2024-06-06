@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block container %}
+<div class="container">
+    <div class="upper">
+        <h1>UBagri farmer support</h1>
+        <p>work with farmer who want <br>right education and be successful on market.</p>
+        <section>
+            <div class="right">
+                <p>Watch DEMO</p>
+            </div>
+            <div class="left">
+                <img src="{{ url_for('static', filename='images/agri-happ.png') }}" alt="agri-happ">
+                <img src="{{ url_for('static', filename='images/agri_farmer.png') }}" alt="agri farmer">
+                <img src="{{ url_for('static', filename='images/agri_tea.png') }}" alt="agri tea">
+                <img src="{{ url_for('static', filename='images/image.png') }}" alt="image">
+            </div>
+        </section>
+    </div>
+
+    <div class="middle">
+        <h2>only way to farm production</h2>
+        <section>
+            <div class="middle_left">
+                <img class="digital" src="{{ url_for('static', filename='images/agri_digital.png') }}" alt="agri digital">
+                <img class="maize" src="{{ url_for('static', filename='images/agri_maize.png') }}" alt="agri maize">
+            </div>
+            <div class="middle_right">
+                <h2>software for farmers</h2>
+                <p>
+                    this is business that helps farmers in Africa to get market access,
+                    stay updated on predictable climate change (weather),
+                    and get more resources for digital farming.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <div class="lower">
+        <h2>Our services offer farmers</h2>
+        <section>
+            <div class="resource">
+                <img src="{{ url_for('static', filename='images/agri_icon.png') }}" alt="agri icon">
+                <p>
+                    this is business that helps farmers in Africa to get market access,
+                    stay updated on predictable climate change (weather),
+                    and get more resources for digital farming.
+                </p>
+            </div>
+            <div class="market">
+                <img src="{{ url_for('static', filename='images/agri_market_icon.png') }}" alt="agri market icon">
+                <p>
+                    Making hard harvests more productive is challenging,
+                    but knowing where to locate</p> <p> markets and pricing can be problematic for farmers.
+                    We offer solutions for these issues when you work with us.
+                </p>
+            </div>
+        </section>
+
+        <div class="weather">
+            <img src="{{ url_for('static', filename='images/agri_weather_icon.png') }}" alt="agri weather icon">
+            <p>
+                Determination and prediction of climate every day and season are essential
+                for becoming a successful farmer.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

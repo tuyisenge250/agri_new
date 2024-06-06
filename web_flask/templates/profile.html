@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block container %}
+<script src="{{ url_for('static', filename='styles/profile.js')}}"></script>
+<div class="profibody">
+    <div class="profleft">
+        <h6>Fullname:</h6>
+        <h1>Tuyisenge Benjamin</h1>
+        <div class="profimg">
+            <img src="{{ url_for('static', filename='images/agri_farmer.png') }}" alt="">
+        </div>
+        
+        <p>We are family for beers</p>
+        <h6>Description</h6>
+        <p>This is only strategy for farmers and ways to achieve more.</p>
+    </div>
+    <div class="profright">
+        <button>Views</button>
+    </div>
+    <div class="profright2">
+        <div class="blogs">
+            <a href=""><h2>Start Post</h2></a>
+        </div>  
+        <div class="blogsupload">
+            <form action="" method="post" enctype="multipart/form-data">
+                <textarea name="blogs" id="" cols="37" rows="8"></textarea>
+                <a href="#" id="imageUploadTrigger">
+                    <img src="{{ url_for('static', filename='images/image_icon.png') }}" alt="" width="20px" height="20px">
+                </a>
+                <section id="imageUploadSection"></section>
+                <input type="submit" value="Submit">
+            </form>
+        </div>     
+    </div>
+</div>
+{% endblock %}
