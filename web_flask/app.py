@@ -10,6 +10,8 @@ from models.blogs import Blog
 from flask import Flask, render_template, request, url_for, flash, redirect, jsonify,session
 from flask_login import LoginManager
 from models.product import Product
+from models.news_letter import News
+from models.resource import Resource
 
 login_manager = LoginManager()
 
@@ -18,6 +20,7 @@ app.secret_key = 'supersecretkey'
 app.config['UPLOAD_FOLDER'] = 'static/images'
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 login_manager.init_app(app)
+
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -38,20 +41,23 @@ def login():
         else:
             flash("Incorrect username or password")
             return redirect(url_for('login'))
-    
     return render_template('login.html')
 
 
     return render_template('login.html')
-@app.route('/')
-def hello_world():
+@app.route('/home')
+def home():
     return render_template('index.html')
+
+@app.route('/')
+def landing():
+    return render_template('landingpage.html')
 
 @app.route('/market')
 def market():
+    # Retrieve and process blogs
     blogs = storage.all(Blog).values()
     blog_list = []
-
     for blog in blogs:
         blog_dict = blog.to_dict()
         if blog.image:
@@ -62,11 +68,26 @@ def market():
             blog_dict['username'] = user.username
             blog_dict['first_name'] = user.first_name
             blog_dict['second_name'] = user.last_name
-            blog_dict['image_profile'] = url_for('static' , filename=user.image)
-
+            blog_dict['image_profile'] = url_for('static', filename=user.image)
         blog_list.append(blog_dict)
+    
+    news = storage.all(News).values()
+    new_market = []
+    for new in news:
+        new_dict = new.to_dict()
+        print(new_dict)
+        if new.image:
+            new_dict['image'] = url_for('static', filename=new.image)
+        if new.status == 'market':
+            new_market.append(new_dict)
 
-    return render_template('mark.html', blogs=blog_list)
+    products = storage.all(Product).values
+    product_market = []
+    for product in products:
+        product_dict = product.to_dict()
+        product_market.append(product_dict)
+
+    return render_template('mark.html', blogs=blog_list, new=new_market, product=product_dict)
 
 @app.route('/create', methods=('GET', 'POST'))
 def createlogin():
@@ -78,12 +99,16 @@ def createlogin():
             password = request.form['password']
             image = request.files['image']
             username = request.form['username']
+            description = request.form['description']
+            print(description)
             my_user = User()
             my_user.first_name = first_name
             my_user.last_name = last_name
             my_user.email = email
             my_user.password = password
             my_user.username = username
+            my_user.description = description
+            print(my_user)
             if image and image.filename != "":
                 filename = secure_filename(image.filename)
                 image_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
@@ -92,6 +117,25 @@ def createlogin():
             my_user.save()
             return redirect('login')
     return render_template('create.html')
+@app.route('/addnews', methods=('GET', 'POST'))
+def addnew():
+    my_news = News()
+    if request.method == 'POST':
+        title = request.form['title']
+        content = request.form['content']
+        status = request.form['status']
+        image = request.files['image']
+        if image and image.filename != "":
+            filename = secure_filename(image.filename)
+            image_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            image.save(image_path)
+            my_news.image = os.path.join('images', filename)
+        my_news.status = status
+        my_news.content = content
+        my_news.title = title
+        print(my_news)
+        my_news.save()
+    return render_template('addnews.html')
 
 @app.route('/fetchat')
 def fetching():
@@ -117,7 +161,10 @@ def profile(user_id):
     if not user_id:
         flash("You need to log in first")
         return redirect(url_for('login'))
-
+    user = storage.get(User, user_id)
+    print(user)
+    if user.image:
+        user.image = url_for('static', filename=user.image) if user.image else None
     if request.method == 'POST':
         blog = request.form['blogs']
         image = request.files['image']
@@ -135,7 +182,25 @@ def profile(user_id):
         flash("Blog post saved successfully")
         return redirect(url_for('profile', user_id=user_id))
 
-    return render_template('profile.html', user_id=user_id)
+    return render_template('profile.html', user_id=user_id,user=user)
+@app.route('/createresource', methods=['GET', 'POST'])
+def createresource():
+    product = storage.all(Product).values()
+    resource = Resource()
+    if request.method == 'POST':
+        crops = request.form['crops']
+        content = request.form['content']
+        crop = next((p for p in product if p.name == crops), None)
+        if not crop:
+            flash('Create this crop first.')
+            return redirect(url_for('creatproduct'))
+        else:
+            resource.crops = crop.id
+            resource.content = content
+            resource.save()
+            flash('Your crop content has been set successfully.')
+            return redirect(url_for('market'))
+    return render_template('createresource.html')
 
 @app.route('/createproduct', methods=['POST', 'GET'])
 def creatproduct():
@@ -159,6 +224,23 @@ def creatproduct():
     return render_template('product.html')
 @app.route('/resource')
 def resource():
+
     return render_template('resource.html')
+
+@app.route('/adminstration')
+def adminstration():
+    return render_template('adminstration.html')
+
+@app.route('/news')
+def news():
+    news = storage.all(News).values()
+    news_letter = []
+    for new in news:
+        news_dict = new.to_dict()
+        if new.image:
+            news_dict['image'] = url_for('static', filename=new.image)
+        news_letter.append(news_dict)
+    
+    return render_template('news.html', news=news_letter)
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

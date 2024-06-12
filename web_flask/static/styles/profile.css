@@ -73,3 +73,32 @@ a{
     width: 100%;
     height: 30px;
 }
+.news{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px;
+}
+.newsblock{
+    width: 200px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    border: 2px rgb(186, 115, 115) solid;
+    background-color: #ddd;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+.newsblockupper{
+    height: 90px;
+    overflow: hidden;
+}
+.newsblockupper img{
+    width: 175px;
+    height: 90px;
+}
+.newsblocklower{
+    font-weight: 600;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}

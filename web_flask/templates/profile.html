@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block container %}
-<script src="{{ url_for('static', filename='styles/profile.js')}}"></script>
+<script src="{{ url_for('static', filename='scripts/profile.js')}}"></script>
 <div class="profibody">
     <div class="profleft">
         <h6>Fullname:</h6>
-        <h1>Tuyisenge Benjamin</h1>
+        <h1>{{ user.first_name }} {{ user.last_name }}</h1>
         <div class="profimg">
-            <img src="{{ url_for('static', filename='images/agri_farmer.png') }}" alt="">
+            <img src="{{ user.image }}" alt="">
         </div>
         
         <p>We are family for beers</p>

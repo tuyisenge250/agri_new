@@ -12,6 +12,9 @@
                 <li><a href="">Cocoyam Leaves&nbsp&nbsp 0.3$</a></li>
                 <li><a href="">cassava Leaves&nbsp&nbsp 0.8$</a></li>
                 <li><a href="">Jute Mallow&nbsp&nbsp 1.3$</a></li>
+                {% for products in product %}
+                <li><a href="">{{product.name}} {{ product.price }}</a></li>
+                {% endfor %}
             </ul>
         </div>
         <div class="navcenter">
@@ -64,6 +67,14 @@
             <img src="{{ url_for('static', filename='images/agri_market_kigali_nyarugenge.png') }}" alt="">
             <p>fruits and vegetables in the Kimironko market is available right now</p>
         </div>
+        {% for news in new %}
+        <div class="right">
+            {% if news.image %}
+                <img src="{{ news.image }}" alt="News Image">
+            {% endif %}
+            <p>{{ news.content }}</p>
+        </div>
+    {% endfor %}
     </div>
 </div>
 <h1>why to Trust us on Makret</h1>
@@ -75,6 +86,12 @@
             on both nation and intenation market
         </p>
     </div>
+    {% for products in product %}
+    <img src="{{ products.image }}" alt="">
+    <h1>{{ products.name }} {{ products.price }}</h1>
+    <p>{{ products.discription }}</p>
+    <sub>{{ products.create_at }}</sub>
+    {% endfor %}
 </div>
 
 {% endblock %}

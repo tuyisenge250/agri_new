@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='styles/market.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='styles/profile.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='styles/resources.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/form.css')}}">
 
         <title>{% block title %}UBagri{% endblock %}</title>
     </head>
@@ -17,10 +18,10 @@
                 <img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="Logo">
             </div>
             <nav class="navigation">
-                <a href="#">About</a>
-                <a href="url_for( 'weather' )">Weather</a>
-                <a href="#">Education</a>
-                <a href="url_for('market')">Market</a>
+                <a href="{{url_for('home')}}">home</a>
+                <a href="{{url_for('weather')}}">Weather</a>
+                <a href="{{url_for('resource')}}">Education</a>
+                <a href="{{url_for('market')}}">Market</a>
             </nav>
             <div class="search-button">
                 <img src="{{ url_for('static', filename='images/search.png') }}" alt="Search">

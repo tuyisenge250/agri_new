@@ -1,0 +1,162 @@
+.upper-section, .middle-section, .lower-section {
+    margin-top: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.upper-section .title {
+    flex-basis: 65%;
+}
+
+.upper-section .title h2 {
+    text-decoration: none;
+    text-align: center;
+}
+
+.upper-section .title p {
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.upper-section .title span {
+    display: inline-block;
+    background-color: green;
+    height: 60px;
+    padding: 15px;
+    margin-left: 70%;
+    font-size: 18px;
+    font-weight: 800;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.upper-section .title button {
+    background-color: green;
+    font-size: 18px;
+    font-weight: 800;
+    border: none;
+}
+
+.upper-section .date {
+    flex-basis: 30%;
+}
+.upper-section .date #day {
+    background-color: blue;
+    height: 60px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-right: 50px;
+}
+
+.upper-section .date #day p {
+    text-align: center;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.upper-section .date .temperature {
+    width: 100%;
+    background-color: grey;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 20px;
+    margin-top: 15px;
+}
+
+.middle-section .state {
+    border: 1px solid #ccc;
+    background-color: #ccc;
+    flex-basis: 35%;
+}
+
+.middle-section .image {
+    flex-basis: 65%;
+}
+
+.middle-section .image img {
+    width: 300px;
+    height: 200px;
+}
+
+.middle-section .state ul {
+    list-style: none;
+}
+.middle-section .state ul li {
+    background-color: white;
+    margin: 10px 0 10px 10px;
+    font-size: 18px;
+}
+
+.lower-section .news {
+    flex-basis: 20%;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.lower-section .news h2 {
+    background-color: black;
+    color: white;
+    font-size: 24px;
+}
+
+.lower-section .news .latest img {
+    width: 50px;
+    height: 50px;
+}
+
+.lower-section .news .latest .latest-news {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.lower-section .description {
+    flex-basis: 78%;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #ccc;
+}
+
+.lower-section .description ul {
+    list-style: none;
+}
+
+.lower-section .description ul li {
+    margin: 5px 10px;
+    font-size: 15px;
+}
+
+input {
+    margin-top: 1.2rem;
+    padding: 1rem;
+    margin-left: 10PX;
+}
+
+.forecast {
+    width: 100%;
+    background-color: #032541;
+    text-align: center;
+    color: white;
+    font-size: 32px;
+}
+
+.weather_description {
+    color: white;
+    margin-top: 2rem;
+}
+
+#season {
+    background-color: #032541;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}

@@ -1,0 +1,29 @@
+form{
+    background-color: #ddd;
+    border: 2px brown solid;
+    border-radius: 4px;
+    width: 600px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 300px;
+    padding: 20px;
+}
+input{
+    margin-top: 5px;
+    padding:3px;
+}
+label{
+    font-weight: 400;
+}
+input[value='submit']{
+    width: 30%;
+    height: auto;
+    justify-self: center;
+    margin-left: 175Px;
+}
+form:has(textarea[name='blogs']){
+    margin-left: 0px;
+    width: 367px;
+}

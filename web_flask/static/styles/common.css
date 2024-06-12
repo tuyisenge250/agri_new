@@ -79,6 +79,8 @@ p {
 .lower .market {
     justify-content: center;
     flex-basis: 35%;
+    display: flex;
+    flex-direction: column;
 }
 .lower .resource img {
     width: 260px;

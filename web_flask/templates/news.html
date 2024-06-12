@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block container %}
+<div class="news">
+    {% for new in new %}
+    <div class="newblock" onclick="toggleContent('content-{{ loop.index }}')">
+        <div class="newblockupper" style="background-image: url('{{ new.image }}');"></div>
+        <div class="newblocklower">{{ new.title }}</div>
+    </div>
+    <div id="content-{{ loop.index }}" class="newcontent" style="display: none;">
+        <p>{{ new.content }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+<script>
+function toggleContent(id) {
+    var content = document.getElementById(id);
+    if (content.style.display === "none") {
+        content.style.display = "block";
+    } else {
+        content.style.display = "none";
+    }
+}
+</script>
+
+<style>
+.newblock {
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.newblockupper {
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+}
+.newblocklower {
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+.newcontent {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+</style>
