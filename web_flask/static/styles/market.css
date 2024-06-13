@@ -107,10 +107,12 @@ h1{
 }
 .navbuttom{
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     background-color: #ddccdd;
-    height: 50vh;
+    height: auto;
     width: 100%;
+    border: 1px #ddccdd solid;
 }
 .buttomblog{
     display: flex;

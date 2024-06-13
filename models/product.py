@@ -11,7 +11,5 @@ class Product(Base_model):
     image = Column(String(255), nullable=False)
     discription = Column(String(255), nullable=False)
 
-    resources = relationship('Resource', backref='product', cascade='all, delete, delete-orphan')
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

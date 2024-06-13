@@ -79,18 +79,13 @@
 </div>
 <h1>why to Trust us on Makret</h1>
 <div class="navbuttom">
-    <div class="buttomblog">
-        <img src="{{ url_for('static', filename='images/benpicture.jpeg')}}" alt="">
-        <p>hello ever user i benjamin
-            one use of agri market connect
-            on both nation and intenation market
-        </p>
-    </div>
     {% for products in product %}
-    <img src="{{ products.image }}" alt="">
+    <div class="buttomblog">
+        <img src="{{ products.image }}" alt="">
     <h1>{{ products.name }} {{ products.price }}</h1>
     <p>{{ products.discription }}</p>
     <sub>{{ products.create_at }}</sub>
+    </div>
     {% endfor %}
 </div>
 

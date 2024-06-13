@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='styles/resources.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='styles/form.css')}}">
 
+
         <title>{% block title %}UBagri{% endblock %}</title>
     </head>
     <body>
@@ -22,6 +23,7 @@
                 <a href="{{url_for('weather')}}">Weather</a>
                 <a href="{{url_for('resource')}}">Education</a>
                 <a href="{{url_for('market')}}">Market</a>
+                <a href="{{url_for('login')}}">login</a>
             </nav>
             <div class="search-button">
                 <img src="{{ url_for('static', filename='images/search.png') }}" alt="Search">

@@ -27,7 +27,7 @@ class DBstorage:
         self.__engine = create_engine(
             'mysql+mysqldb://{}:{}@{}/{}'.format('tuyisenge', 'tuyisenge2003', 'localhost', 'agrinew')
         )
-        self.reload()  # Reload the session upon initialization
+        self.reload() 
 
     def all(self, cls=None):
         new_dict = {}
